@@ -1,8 +1,7 @@
 import pytest
-from pathlib import Path
 import sys
-import unittest
 from unittest.mock import MagicMock
+
 
 @pytest.fixture
 def pyodide_imports(monkeypatch):

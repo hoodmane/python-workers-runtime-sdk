@@ -17,6 +17,7 @@ from typing import Any, Never, Protocol, TypedDict, Unpack, TYPE_CHECKING
 import _pyodide_entrypoint_helper
 import js
 from js import Object
+
 if TYPE_CHECKING:
     from js import Env
 
@@ -1148,6 +1149,7 @@ class DurableObject:
     """
     Base class used to define a Durable Object.
     """
+
     ctx: Context
     env: "Env"
 
@@ -1163,6 +1165,7 @@ class WorkerEntrypoint:
     """
     Base class used to define a Worker Entrypoint.
     """
+
     ctx: Context
     env: "Env"
 
@@ -1178,6 +1181,7 @@ class WorkflowEntrypoint:
     """
     Base class used to define a Workflow Entrypoint.
     """
+
     ctx: Context
     env: "Env"
 
