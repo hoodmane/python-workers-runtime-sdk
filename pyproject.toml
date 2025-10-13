@@ -15,4 +15,5 @@ include = ["src/*"]
 [dependency-groups]
 dev = [
     "build",
+    "pytest>=8.4.2",
 ]
