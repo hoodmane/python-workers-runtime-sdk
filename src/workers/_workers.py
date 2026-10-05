@@ -11,7 +11,7 @@ from contextlib import ExitStack, contextmanager
 from enum import StrEnum
 from http import HTTPMethod, HTTPStatus
 from types import LambdaType
-from typing import Any, Never, Protocol, TypedDict, Unpack, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Never, Protocol, TypedDict, Unpack
 
 # Get globals modules and import function from the entrypoint-helper
 import _pyodide_entrypoint_helper
@@ -32,6 +32,7 @@ from pyodide.ffi import (
     to_js,
 )
 from pyodide.http import pyfetch
+
 from workers.workflows import NonRetryableError
 
 
