@@ -5,6 +5,7 @@ from inspect import isawaitable
 from typing import Any
 
 import js
+
 from workers import Context, Request
 
 ASGI = {"spec_version": "2.0", "version": "3.0"}
@@ -111,7 +112,6 @@ async def process_request(
     app: Any, req: "Request | js.Request", env: Any, ctx: Context
 ) -> js.Response:
     from js import Object, Response, TransformStream
-
     from pyodide.ffi import create_proxy
 
     status = None
@@ -201,7 +201,7 @@ async def process_request(
 
             # If we get here and no response has been set yet, the app didn't generate a response
             if not result.done():
-                raise RuntimeError("The application did not generate a response")  # noqa: TRY301
+                raise RuntimeError("The application did not generate a response")
         except Exception as e:
             # Handle any errors in the application
             if not result.done():
@@ -218,7 +218,7 @@ async def process_request(
     # For non-SSE responses, we need to wait for the application to complete
     if not is_sse:
         await app_task
-    else:  # noqa: PLR5501
+    else:
         if ctx is not None:
             ctx.waitUntil(create_proxy(app_task))
         else:

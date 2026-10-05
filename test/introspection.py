@@ -2,6 +2,9 @@ from inspect import isawaitable, isclass
 from types import FunctionType
 
 import js
+from pyodide.code import relaxed_call
+from pyodide.ffi import to_js
+
 from workers import (
     DurableObject,
     WorkerEntrypoint,
@@ -9,9 +12,6 @@ from workers import (
     python_from_rpc,
     python_to_rpc,
 )
-
-from pyodide.code import relaxed_call
-from pyodide.ffi import to_js
 
 
 def getattr_no_get(cls, name):
